@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Example POI 1",
+    "latitude": 37.78825,
+    "longitude": -122.4324
+  },
+  {
+    "id": 2,
+    "name": "Example POI 2",
+    "latitude": 37.78925,
+    "longitude": -122.4344
+  }
+]
