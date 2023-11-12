@@ -2,13 +2,13 @@
   {
     "id": 1,
     "name": "Example POI 1",
-    "latitude": 37.78825,
-    "longitude": -122.4324
+    "latitude": 50.9712217,
+    "longitude": 4.1811719
   },
   {
     "id": 2,
     "name": "Example POI 2",
-    "latitude": 37.78925,
-    "longitude": -122.4344
+    "latitude": 50.97,
+    "longitude": 4.18
   }
 ]
