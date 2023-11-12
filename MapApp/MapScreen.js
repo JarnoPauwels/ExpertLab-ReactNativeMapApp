@@ -11,7 +11,7 @@ const customMapStyle = [
 
 const MapScreen = () => {
   const [location, setLocation] = useState(null);
-  const [compassData, setCompassData] = useState(null);
+  const [compassData, setCompassData] = useState(0); 
 
   const getLocation = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
@@ -22,6 +22,7 @@ const MapScreen = () => {
 
     let location = await Location.getCurrentPositionAsync({});
     setLocation(location.coords);
+    console.log('User Coordinates:', location.coords);
   };
 
   const requestMagnetometerPermission = async () => {
@@ -32,7 +33,7 @@ const MapScreen = () => {
   };
 
   const updateCompassData = ({ x, y }) => {
-    const rotation = Math.atan2(y, x) * (270 / Math.PI);
+    const rotation = Math.atan2(y, x) * (180 / Math.PI);
     setCompassData(rotation);
   };
 
@@ -53,23 +54,17 @@ const MapScreen = () => {
       {location ? (
         <MapView
           style={styles.map}
-          // region={{
-          //   latitude: location.latitude,
-          //   longitude: location.longitude,
-          //   latitudeDelta: 0.001,
-          //   longitudeDelta: 0.001,
-          // }}
           showsUserLocation
           zoomEnabled
           provider="google"
-          customMapStyle={customMapStyle} 
+          customMapStyle={customMapStyle}
           camera={{
             center: {
               latitude: location.latitude,
               longitude: location.longitude,
             },
             pitch: 0,
-            heading: compassData || 0, 
+            heading: compassData, 
             altitude: 1000, // IOS
             zoom: 18, // GOOGLE
           }}
